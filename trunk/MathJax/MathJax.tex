@@ -1,0 +1,210 @@
+\documentclass{article}
+\usepackage{X}
+\usepackage{url}
+\begin{document}
+\title{MathJax懒人手册}
+\author{马起园\\
+感谢Fandol基金会支持}
+\date{}
+\maketitle
+\section{CDN(Content Delivery Network)}
+放入代码：
+\begin{verbatim}
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+\end{verbatim}
+该段代码可以放在\verb!<head>!和\verb!<body>!中，均会生效，推荐前者。
+\section{自己安装}
+条件：
+\begin{enumerate}
+\item 获得拷贝，上传到服务器
+\item 配置MathJax
+\item 连接MathJax和包含数学的网页
+\item 在网页中加入数学
+\end{enumerate}
+\subsection{获得拷贝}
+下载地址：\url{http://www.mathjax.org/download/}
+
+包命名格式：\verb!mathjax-MathJax-v1.1-X-XXXXXXXX.zip!
+\subsection{配置}
+配置文件：\verb!config/TeX-AMS-MML_HTMLorMML.js!
+\subsection{连接}
+在网页中放入：
+\begin{verbatim}
+<script type="text/javascript" src="path-to-MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+\end{verbatim}
+\verb!path-to-MathJax!为该MathJax的主文件夹。
+
+网页类似应为：
+\begin{verbatim}
+<html>
+    <head>
+        ...
+        <script type="text/javascript" src="/MathJax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+\end{verbatim}
+\subsection{输入}
+\subsubsection{\TeX 或\LaTeX}
+推荐三种输入：\verb!$$...$$!，\verb!\[...\]!和\verb!\(...\)!。不默认使用\verb!$...$!。
+
+在网页中输入如下：
+\begin{verbatim}
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+});
+</script>
+<script type="text/javascript" src="path-to-mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+\end{verbatim}
+
+示例页面如下：
+\begin{verbatim}
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax TeX Test Page</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+When $a \ne 0$, there are two solutions to \(ax^2 + bx + c = 0\) and they are
+$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
+</body>
+</html>
+\end{verbatim}
+\subsubsection{MathML}
+示例页面：
+\begin{verbatim}
+<!DOCTYPE html>
+<html>
+<head>
+<title>MathJax MathML Test Page</title>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+<body>
+
+When <math><mi>a</mi><mo>&#x2260;</mo><mn>0</mn></math>,
+there are two solutions to <math>
+  <mi>a</mi><msup><mi>x</mi><mn>2</mn></msup>
+  <mo>+</mo> <mi>b</mi><mi>x</mi>
+  <mo>+</mo> <mi>c</mi> <mo>=</mo> <mn>0</mn>
+</math> and they are
+<math mode="display">
+  <mi>x</mi> <mo>=</mo>
+  <mrow>
+    <mfrac>
+      <mrow>
+        <mo>&#x2212;</mo>
+        <mi>b</mi>
+        <mo>&#x00B1;</mo>
+        <msqrt>
+          <msup><mi>b</mi><mn>2</mn></msup>
+          <mo>&#x2212;</mo>
+          <mn>4</mn><mi>a</mi><mi>c</mi>
+        </msqrt>
+      </mrow>
+      <mrow> <mn>2</mn><mi>a</mi> </mrow>
+    </mfrac>
+  </mrow>
+  <mtext>.</mtext>
+</math>
+
+</body>
+</html>
+\end{verbatim}
+\section{安装与测试：进阶}
+\subsection{Git}
+获取：
+\begin{verbatim}
+git clone git://github.com/mathjax/MathJax.git MathJax
+\end{verbatim}
+
+升级检查：
+\begin{verbatim}
+cd MathJax
+git remote show origin
+\end{verbatim}
+
+升级：
+\begin{verbatim}
+cd MathJax
+git pull origin
+\end{verbatim}
+\subsection{SVN}
+获取：
+\begin{verbatim}
+svn checkout http://svn.github.com/mathjax/MathJax.git MathJax
+\end{verbatim}
+
+升级检查：
+\begin{verbatim}
+cd MathJax
+svn status -u
+\end{verbatim}
+
+升级：
+\begin{verbatim}
+cd MathJax
+svn update
+\end{verbatim}
+\subsection{测试}
+请测试如下文件夹下文件：
+\begin{verbatim}
+test/
+    index.html          # Tests default configuration
+    index-images.html   # Tests image-font fallback display
+    sample.html         # Sample page with lots of pretty equations
+\end{verbatim}
+\subsection{安装共享}
+字体共享，需要MathJax在安装有\verb!Apache!的服务器上运行MathJax，而字体在其他服务器上，需要将存在字体的服务器上的\verb!MathJax/fonts/!创建\verb!.htaccess!：
+\begin{verbatim}
+<FilesMatch "\.(ttf|otf|eot)$">
+<IfModule mod_headers.c>
+Header set Access-Control-Allow-Origin "*"
+</IfModule>
+</FilesMatch>
+\end{verbatim}
+\subsection{Firefox与本地字体}
+安装\verb!STIX!字体，或者将\verb!MathJax/fonts/HTML-CSS/TeX/otf!下的字体安装到系统中。
+\subsection{IE9和远程字体}
+安装\verb!STIX!字体。
+\section{配置：进阶}
+\subsection{配置文件}
+在\verb!MathJax/config!文件夹下：
+\begin{enumerate}
+\item \verb!default.js!
+\item \verb!TeX-AMS-MML_HTMLorMML.js!
+\item \verb!TeX-AMS_HTML.js!
+\item \verb!MML_HTMLorMML.js!
+\item \verb!Accessible.js!
+\end{enumerate}
+\subsection{行内配置选项}
+\begin{verbatim}
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true
+    },
+    "HTML-CSS": { availableFonts: ["TeX"] }
+  });
+</script>
+<script type="text/javascript" src="path-to-MathJax/MathJax.js">
+\end{verbatim}
+
+\end{document}
