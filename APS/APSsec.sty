@@ -1,0 +1,54 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{APSsec}
+\RequirePackage{calc}
+\newlength{\Sectionwidth}
+\newcommand{\Sectionsize}{\sihao\fs}
+\newcounter{Section}
+\newcommand\Section[1]{%
+		\settowidth{\Sectionwidth}{#1}
+		\par\stepcounter{Section}~~\newline
+		{\noindent\parbox[b][3em][c]{\columnwidth}{
+			\begin{description}
+			\item[\Sectionsize\theSection.]
+				\ifthenelse
+				{\lengthtest{\Sectionwidth=2em}}
+				{\makebox[3.5em][s]{\Sectionsize#1}}
+				{{\Sectionsize#1}}
+			\end{description}
+		}}\par
+}
+
+\newlength{\Subsectionwidth}
+\newcommand{\Subsectionsize}{\xiaosihao\hei}
+\newcounter{Subsection}
+\newcommand\Subsection[1]{
+		\settowidth{\Subsectionwidth}{#1}
+		\par\stepcounter{Subsection}
+		{\noindent\parbox[b][3em][t]{\columnwidth}{
+			\begin{description}
+			\item[\Subsectionsize\theSection.\theSubsection.]
+				\ifthenelse
+				{\lengthtest{\Subsectionwidth=2em}}
+				{\makebox[3em][s]{{\Subsectionsize#1}}}
+				{{\Subsectionsize#1}}\par
+			\end{description}
+		}}\par
+}
+
+\newlength{\Subsubsectionwidth}
+\newcommand{\Subsubsectionsize}{\xiaosihao\kai}
+\newcounter{Subsubsection}
+\newcommand\Subsubsection[1]{
+		\settowidth{\Subsubsectionwidth}{#1}
+		\par\stepcounter{Subsubsection}
+		{\noindent\parbox[b][3em][t]{\columnwidth}{
+			\begin{description}
+			\item[\Subsubsectionsize\theSection.\theSubsection.\theSubsubsection.]
+				\ifthenelse
+				{\lengthtest{\Subsubsectionwidth=2em}}
+				{\makebox[3em][s]{{\Subsubsectionsize#1}}}
+				{{\Subsubsectionsize#1}}
+			\end{description}
+		}}\par
+}
+\endinput
