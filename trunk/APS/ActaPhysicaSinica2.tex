@@ -1,0 +1,84 @@
+\documentclass{APS}
+\info{2011}{6}{1}{010101}
+\ThesisDate{2011.4.2.}{2011.6.29.}
+\ThesisTitleC{石墨烯力学性能研究进展}
+\ThesisTitleE{Research Progress in the Mechanical Properties of Graphene}
+\ProjectC{江苏大学高级人才科研启动基金（10JDG034） 和上海市科委基础研究重点项目（09JC1414400）资助}
+\ProjectE{The project supported by the Scientific Research Foundation for Advanced Talents of Jiangsu University of China(10JDG034) and the Key Program of the Shanghai Committee of Science and Technology(09JC1414400)}
+\Email{ph232@tongji.edu.cn}
+\NameC{\Name{韩同伟}\NameTag{1),2)}\Name{贺鹏飞}\Name{骆英}\Name{张小燕}\NameTag{\dag}}
+\NameE{\Name{Han Tong-Wei}\NameTag{1),2)}\Name{He Peng-Fei}\Name{Luo Ying}\Name{Zhang Xiao-Yan}\NameTag{\dag}}
+\DepartmentsC{
+\Item\Department{江苏大学土木工程与力学学院}{江苏镇江}{212013}
+\Item\Department{江苏大学土木工程与力学学院}{江苏镇江}{212013}
+}
+\DepartmentsE{\Department{School of Civil Engineering and Mechanics, Jiangsu University}{Jiangsu Zhenjiang}{212013}}
+\AbstractC{石墨烯是近年来发现的由单层碳原子通过共价键结合而成的具有规则六方对称的理想二维晶体, 是继富勒烯和碳纳米管之后的又一种新型低维碳材料. 由于具有非凡的电学、热学和力学性能以及广阔的应用前景, 石墨烯被认为是具有战略意义的新材料, 近年来迅速成为材料科学和凝聚态物理等领域最为活跃的研究前沿. 本文简要介绍了研究石墨烯力学性能的实验测试、数值模拟和理论分析方法, 重点综述了石墨烯力学性能的最新研究进展, 主要包括二维石墨烯的不平整性和稳定性, 石墨烯的杨氏模量、强度等基本力学性能参数的预测,石墨烯力学性能的温度相关性和应变率相关性、原子尺度缺陷和掺杂等对力学性能的影响以及石墨烯在纳米增强复合材料和微纳电子器件等领域的应用, 最后对石墨烯材料与结构的力学研究进行了展望.}
+\AbstractE{Graphene has attracted great interest in the fields of materials science and condensed-matter physics due to its unique 2D crystal structure and its exceptionally high crystal and electronic quality. In fact, this strictly
+2D carbon material also exhibits exceptional mechanical properties-including high strength, high stiffess and structural perfection-which could be comparable to that of carbon nanotubes. Recently much effort has been dedicated to the understanding of mechanical behaviors and properties of graphene. However, predicting the mechanical properties of graphene, especially by experimental methods, is still a tough challenge because of its
+special and tiny structures. In this paper, we critically review recent advances in the study on mechanical prop-erties of graphene from experimental investigation, numerical simulation and theoretical analysis, respectively. We focus on the following six aspects: (1) the experimental techniques and computational approaches most often used for studying the mechanical properties of graphene, (2) the roughness and intrinsic ripples in graphene,
+(3) the exploration of mechanical properties such as Young's modulus, tensile and compressive strengths and bending characteristics, (4) size, temperature and strain-rate dependent mechanical behavior of graphene under
+tension, (5) effect of atom-scale defects and doped atoms on the mechanical behavior of graphene, and (6) the application of graphene to nanocomposites and micro/nano electrical devices. Perspective is finally given for
+future development of mechanics analysis of graphene and graphene-based nanostructures.}
+\KeywordsC{石墨烯，力学性能，分子动力学，缺陷}
+\KeywordsE{graphene, mechanical properties, molecular dynamics, defects}
+\PACS{07.57.Kp，85.30.De}
+\begin{document}
+\begin{bicol}
+\Section{引论}
+石墨烯(graphene), 又称为二维石墨片, 是由单层碳原子通过共价键(碳sp$^2$杂化轨道所形成的$\sigma$键、$\pi$键) 结合而成的具有规则六方对称的,如图1 所示, 于2004 年由英国曼彻斯特大学的安德烈·盖姆(Andre Geim) 和康斯坦丁·诺沃肖罗夫(Konstantin Novoselov) 首先发现\Tag{1}, 是继富勒烯(C60) 和碳纳米管(CNTs) 之后的又一种新型低维碳材料, 其厚度仅为头发丝直径的20 万分之一, 约为0.335 nm, 是目前发现的最薄的层状材料.
+
+在石墨烯中, 每个碳原子通过很强的键(自然界中最强的化学键) 与其他3个碳原子相连接,这些很强的碳碳键致使石墨烯片层具有极其优异的力学性质和结构刚性. 碳原子有4个价电子,每个碳原子都贡献一个未成键的电子, 这些电子与平面成垂直的方向可形成轨道, 电子可在晶体中自由移动, 赋予石墨烯良好的导电性.但这些面外离位的键与相邻层内的键的层间相互作用远远小于一个键, 即片层间的作用力较弱, 因此石墨层间很容易互相剥离, 形成薄的石墨片. 石墨烯的碳基二维晶体是形成sp$^2$ 杂化碳质材料的基元, 它可以包裹起来形成零维的富勒烯(fullerene, C$_{60}$), 卷起来形成一维的纳米碳管(carbon nanotube, CNT), 层层堆积形成三维的石墨(graphite), 石墨烯是构建众多碳质材料的基本结构单元\Tag{3}, 如图2所示.
+
+由于独特的二维结构以及优异的晶体品质, 石墨烯具有十分优异的电学、热学、磁学和力学性能\Tag{1-8}, 有望在高性能纳米电子器件、复合材料、场发射材料、气体传感器、能量存储等领域获得广泛应用. 石墨烯是零隙半导体, 具有一般低维碳材料所无法比拟的载流子特性, 是其备受关注的重要原因之一. 石墨烯成为凝聚态物理学中独一无二的描述无质量狄拉克-费米子(mass-less Dirac Fermions) 的模型体系, 这种现象导致了许多新奇的电学性质. 因此, 石墨烯为相对论量子电动力学现象的研究提供了重要借鉴. 研究还表明, 石墨烯的热导率和机械强度(5kW$\cdot\mathrm{m}^{-1}\cdot\mathrm{K}^{-1}$和1.06 TPa) 可与宏观石墨材料相媲美, 断裂强度与碳纳米管相当\Tag{7-9}. 此外, 石墨烯为制备集超高导电、导热及机械性能等各种优越性能于一
+体的新型功能复合材料提供了一种理想的纳米填料\Tag{10-11}. 因此, 石墨烯被誉为新一代战略材料, 近年来迅速成为材料科学和凝聚态物理领域最为活跃的研究前沿\Tag{2;12-15}. 2009 年12 月, \textsl{Science}杂志将"石墨烯研究取得新进展" 列为2009 年十大科技进展之一. 2010 年10 月, 英国曼彻斯特大学的两位科学家安德烈·盖姆和康斯坦丁·诺沃肖罗夫因在二维空间材料石墨烯方面的开创性实验而获得诺贝尔物理学奖, 由此引发石墨烯新的研究热潮.
+
+本文主要介绍石墨烯在力学性能方面的最新研究进展, 首先简要介绍研究石墨烯力学性能的实验测试、数值模拟和理论分析方法, 然后重点综述石墨烯力学性能的最新研究进展, 主要包括：(1)二维石墨烯的不平整性和稳定性; (2) 石墨烯的杨氏模量、强度等基本力学性能参数的预测; (3) 石墨烯力学性能的温度相关性和应变率相关性; (4)原子尺度缺陷和掺杂等对石墨烯力学性能的影响;(5) 石墨烯在纳米增强复合材料和微纳电子器件等领域的应用. 在此基础上, 指出今后值得重视的若干研究方向.
+\Section{研究石墨烯力学性能的方法}
+纳米材料的力学行为是固体力学领域的重要科学问题, 发展适用于低维纳米材料力学性能的预测及测试技术是当前固体力学研究领域的重要前沿课题. 目前, 对于石墨烯等原子厚度纳米薄膜,人们面临着从研究方法到研究内容等诸多方面的挑战与困难. 研究石墨烯的力学性能, 就研究方法而言, 主要有实验测试、数值模拟和理论分析3种途径.
+
+关于实验测试方法, 文献\Tag{16-18}对纳米材料力学性能、纳米薄膜等界面强度测试方法进行了总结评述. 然而, 由于石墨烯独特的二维结构, 就现阶段的实验条件而言, 对石墨烯进行力学测试的难度仍然很大, 主要原因一方面是高质量石墨烯材料的制备较为困难, 另外, 可有效使用的实验设备甚少, 以及载荷与变形量的测量精度不易保证. 目前只有原子力显微镜(AFM) 纳米压痕实验系统可以有效使用, 但仍须借助理论分析才能得到有效的材料力学性能参数. 但是, 纳米压痕的结果具有一定的分散性, 压头尺寸、形状、位置以及材料本身的一些形貌特征对实验结果会带来较大的影响, 需要进行大量试验, 采用多点测试, 统计分析的方法才能获得有意义的实验结果.
+
+除了实验测试手段, 数值模拟已经成为纳米材料力学行为研究的强有力工具\Tag{19-20}, 文献\Tag{21} 对此进行了详细的综述. 一般而言, 研究纳米尺度材料力学性能最常用的数值模拟计算方法有：量子力学方法\Tag{22}、分子力学(molecular mechanics) 方法\Tag{23}、蒙特卡罗(Monte Carlo) 方法\Tag{24-26} 和分子动力学(molecular dynamics) 方法\Tag{27-29}. 从根本上讲, 对材料的研究可以通过量子力学第一原理得到所需要的结果, 但由于理论上的困难和计算机资源方面的限制, 量子力学要处理成千上万个原子分子体系, 就显得无能为力. 分子力学方法借助普遍适用的分子力场, 建立各原子间微观变形运动与势能变化之间的关系, 可以描述基态原子的结构变化特征\Tag{23}. 但是, 严格地讲, 该方法描述的是绝对零度的分子体系, 无法反映分子结构形变运动中的各种温度效应. 特别对于所有原子皆为表面原子的石墨烯结构, 温度变化对其物性的影响非常显著. 蒙特卡罗方法虽然通过波耳兹曼(Boltzmann)因子的引入能够描述不同温度的平均体系, 可仍然只用势能项描述分子体系, 不含有动能项, 因而不能真实体现分子体系的动态变化过程. 分子动力学方法具有其他方法所没有的特点,既含有动能项, 也包含分子结构变化的时间函数,从而可以定量地模拟真实固体中所发生的动态过程, 深入了解原子运动的复杂机制, 从本质上揭示结构运动规律. 当研究较短时间尺度内具有温度效应与时间效应的结晶过程、膨胀过程、弛豫过程和外力场中的形变过程时, 分子动力学方法具有不可替代的优势. 目前, 分子动力学模拟可以实现百万甚至数十亿个原子的计算规模, 已经成为研究纳米材料力学行为的有力工具.
+
+在理论分析方面, 由于目前纳米尺度力学的理论框架尚未成熟, 基于连续介质理论的分析方法被尝试用来研究石墨烯、碳纳米管等微纳观结构的力学行为\Tag{30-54}. 连续介质力学是一门相对完善的学科, 利用纳米结构与宏观结构的某些相似性,采用连续介质力学理论进行唯象模拟, 可以克服分子动力学方法对时间和空间尺度的限制, 是一种非常有效的分析手段. 基于连续介质理论的分析方法大概有两类：一类是采用等效模型, 如弹性梁模型、弹性壳模型等, 该方法是将石墨烯或碳纳米管结构用弹簧、杆、梁、薄膜、板、壳等元件来构造, 元件的力学与几何参数通过在少数几个典型变形情况下由原子模拟得到的相应结果来进行拟合, 但这种方法不能保证在选择的典型变形情况以外其他更多情况下模拟的准确性, 而且只能进行线性分析; 另外一类方法是基于原子势的连续介质方法, 把原子势计入连续介质本构模型之中, 如Hwang 研究组\Tag{44-47;49-54} 提出的基于原子势的连续膜理论和后来发展的连续壳体理论. 当然,由于纳米尺度所独有的一些特殊性质, 在某些情况下, 我们无法直接利用现有的连续介质力学的基本理论, 因此仍需进一步完善和发展连续介质力学的理论和方法, 使其能够用于石墨烯、碳纳米管等力学问题的研究.
+\Section{石墨烯的力学性能}
+\Subsection{石墨烯的不完整性和稳定性}
+关于准二维晶体的存在, 科学界一直存在争议. 早在1934 年, Peierls\Tag{55} 就提出准二维晶体材料在室温环境下会迅速分解或拆解. 根据Mermin-Wagner 理论\Tag{56-57}, 长的波长起伏会使长程有序的二维晶体受到破坏. 另外, 根据弹性理论\Tag{58-59}, 二
+维薄膜在有限温度(> 0 K) 下表现出不稳定性, 尤其会发生弯曲现象. 因此科学家们一直认为严格的二维晶体结构由于热力学不稳定性而难以独立稳定地存在. 单层石墨烯的成功制备\Tag{1;60} 震惊了物理界, 使科学家们对完美二维晶体结构无法在非绝对零度下稳定存在" 这一基本论述提出了质疑. Novoselov 等\Tag{1;60} 利用机械剥离法(mechanicalcleavage) 首次成功获得了真正意义上的二维石墨烯片, 而且可在外界环境中稳定地存在, 为二维体系的实验研究提供了广阔的空间.
+
+然而, 石墨烯在自然状态下是否为完美的平面结构还亟待进一步证实, 诸多学者对此进行了研究. Meyer\Tag{61-62} 和Ishigami 等\Tag{63} 将石墨烯嵌入三维空间(附着在微型支架或置于SiO$_2$ 衬底上), 通过透射电子显微镜观察并辅以数值模拟, 研究表明, 石墨烯并不完全平整, 产生了面外起伏褶皱,如图3(a) 所示. Fasolino 等\Tag{64} 采用蒙特卡罗模拟方法研究了石墨烯的平整度问题, 发现由于热涨落, 石墨烯中自发地存在大约8 nm 的波纹状褶皱, 如图3(b) 所示. 产生这些褶皱的原因可能与碳原子在二维石墨烯中所处的环境有一定的关系, Carlsson\Tag{65} 对此进行了讨论. 石墨烯中的碳原子在薄膜上下没有近邻原子, 碳原子容易在法向方向失稳而没有恢复力. 正是这些纳米级别的三维褶皱巧妙地使二维石墨烯晶体结构稳定地存在.褶皱的产生与碳碳键的柔性也存在有一定的关系.理论上, 碳碳键长为0.142 nm, 实际自由状态下,石墨烯薄膜中的碳碳键长介于0.130-0.154 nm 分布\Tag{64}.
+
+另外, 石墨烯的边界表现出不稳定性, 边界的结构和形貌对石墨烯的性质会产生重要影响.Shenoy 等\Tag{66} 基于有限元分析和原子模拟, 研究发现, 扶手椅型和锯齿型石墨烯的边界均会产生压应力, 边界压力的存在会导致石墨烯薄膜边界产生翘曲现象, 如图4 所示, 同时发现锯齿边的起伏幅度大于扶手椅边的起伏幅度. Reddy 等\Tag{67} 通过能量最小化研究石墨烯平衡态的构型发现, 初始为矩形的4 条边在平衡态时也会发生弯曲现象. 韩同伟等\Tag{68-69} 基于AIREBO 势函数利用分子动力学方法模拟了自由态石墨烯的弛豫性能, 也发现边界会产生相似的翘曲现象, 同时发现多层石墨烯的边界翘曲程度明显比单层石墨烯的小. Gass等\Tag{70}采用扫描透射电镜对无支撑石墨烯的原子晶格进行了实验观测并辅以数值分析, 研究表明,无支撑石墨烯的边界会重组产生卷曲现象, 形成直径最小的纳米管. 石墨烯边界产生翘曲或卷曲的原因可能在于孤立的石墨烯边缘存在大量的悬键, 由于悬键的存在, 使得石墨烯边缘处的能量较高, 从而致使其发生变形以减小边界处的能量.
+
+\Subsection{石墨烯的杨氏模量、强度等基本力学性能参数的测量}
+
+石墨烯的杨氏模量、泊松比、抗拉强度等基本力学性能参数的预测是近年来石墨烯力学性能研究的主要内容之一. 需要指出的是, 杨氏模量等力学性能参数是属于连续介质框架下的力学概念, 由于石墨烯是由单层碳原子构成, 其厚度必须采用连续介质假设后计算其力学性能参数才有意义. 但到目前为止, 人们尚未对此形成统一的认识.有些研究学者取此厚度为0.066 nm\Tag{37;71}, 略小于单个碳原子的半径, 更多的研究学者取石墨晶体的层间距0.335nm\Tag{7;72-73}. 因此采用不同的厚度定义方式, 得到的应力和杨氏模量等结果是不同的.
+\[E=mc^2\]
+在实验测试方面, 由于石墨烯的二维结构, 传统的宏观材料测试方法和技术很难获得石墨烯有效的力学性能参数, 原子力纳米压痕实验系统得到了较多的应用. Lee 等\Tag{7} 将石墨烯置于带有孔状结构的Si 衬底表面, 首次利用原子力显微镜纳米压痕实验研究了石墨烯的弹性性质和断裂强度, 得到压头压入深度与所施加的力的关系曲线,如图5 所示, 并辅以连续介质力学分析, 假设石墨烯厚度为0.335 nm, 得到石墨烯的杨氏模量为(1.0$\pm$0.1) TPa, 理想强度为(130$\pm$10) GPa. 另外Lee等\Tag{74} 还利用原子力显微镜研究了石墨烯的摩擦力学行为. G\'omez-Navarro 等\Tag{75} 利用化学还原氧化石墨烯法制备得到了单层石墨烯, 并利用原子力显微镜测试了其弹性性能, 发现石墨烯具有很高的柔韧性, 假设石墨烯的厚度为1 nm, 得到其杨氏模量为(0.25$\pm$0.15) TPa. Poot 等\Tag{76} 采用原子力纳米压痕实验测试了多层石墨烯的弯曲刚度和应力特性, 并研究了与薄膜厚度的依赖关系. 研究表明, 弯曲刚度和张应力随薄膜厚度的增加而增加.Frank 等\Tag{77} 利用原子力显微镜测得不多于5 层的石墨烯的有效弹簧常数介于1-5 N/m, 通过拟合双端固支的受拉梁模型得到石墨烯的杨氏模量为0.5 TPa, 远低于石墨的面内杨氏模量1 TPa.
+\Subsection{石墨烯力学性能的温度相关性和应变率相关性}
+\end{bicol}
+
+\begin{Bib}
+\bibitem{4} Shahverdiev E M and Shore K A 2005 \textit{Phys. Rev.} E {\bf 71}
+016201
+\bibitem{5} Wang J S, Feng J and Zhan M S 2001 \textit{Acta Phys. Sin.} {\bf
+50} 299 (in Chinese)
+\bibitem{6} Bloembergen N 1965 \textit{Nonlinear Optics} 1st ed. (New York:
+Benjamin) pp.~12--15
+\bibitem{7} Tabbal A M, M\'erel P and Chaker M 1999 \textit{Proceedings of the {\rm 14}-th
+International Symposium on Plasma Chemistry  Prague}, Czech Republic,
+\bibitem{8} Tabbal A M, M\'erel P and Chaker M 1999 \textit{Proceedings of the {\rm 14}-th
+International Symposium on Plasma Chemistry  Prague}, Czech Republic,
+\bibitem{9} Tabbal A M, M\'erel P and Chaker M 1999 \textit{Proceedings of the {\rm 14}-th
+International Symposium on Plasma Chemistry  Prague}, Czech Republic,
+\bibitem{10} Tabbal A M, M\'erel P and Chaker M 1999 \textit{Proceedings of the {\rm 14}-th
+International Symposium on Plasma Chemistry  Prague}, Czech Republic,
+\bibitem{11} Tabbal A M, M\'erel P and Chaker M 1999 \textit{Proceedings of the {\rm 14}-th
+International Symposium on Plasma Chemistry  Prague}, Czech Republic,
+\bibitem{12} Tabbal A M, M\'erel P and Chaker M 1999 \textit{Proceedings of the {\rm 14}-th
+International Symposium on Plasma Chemistry  Prague}, Czech Republic,
+August 2--6, 1999  p.~1099
+\end{Bib}
+\newpage
+\end{document}

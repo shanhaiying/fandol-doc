@@ -1,0 +1,92 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{APSspec}
+\RequirePackage{graphicx}
+\def\@ReceivedDateC{2011年1月1日}
+\def\@ReceivedDateE{2011.1.1.}
+\def\@RevisedManuscriptRecivedDateC{2011年1月1日}
+\def\@RevisedManuscriptRecivedDateE{2011.1.1.}
+\def\@ThesisTitleC{<论文标题>}
+\def\@ThesisTitleE{<Title of your thesis>}
+\def\@ProjectC{<资助项目>}
+\def\@ProjectE{<Project>}
+\def\@Email{<E-mail>}
+\def\@NameC{<中文姓名>}
+\def\@NameE{<English Names>}
+\def\@DepartmentsC{<中文地址>}
+\def\@DepartmentsE{<Departments>}
+\def\@AbstractC{<摘要>}
+\def\@AbstractE{<Abstract>}
+\def\@KeywordsC{<关键字>}
+\def\@KeywordsE{<Keywords>}
+\def\@PACS{<PACS>}
+\def\TwoToThree#1#2{#1\ \ #2}
+\def\DateTransC#1.#2.#3.{#1年#2月#3日}
+\def\DateTransE#1.#2.#3.{#3\ \ifcase#2\or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi\ #1}
+
+\def\ThesisTitleCSize{\erhao\hei}
+\def\ThesisTitleESize{\fontsize{17pt}{\baselineskip}\selectfont}
+\def\SubtitleSize{\sanhao\song}
+\def\NameCSize{\sihao\fs}
+\def\NameESize{\fontsize{10pt}{\baselineskip}\selectfont}
+\def\DepartmentCSize{\liuhao\song}
+\def\DepartmentESize{\fontsize{8pt}{\baselineskip}\selectfont}
+\def\DateCSize{\liuhao\song}
+\def\DateESize{\fontsize{8pt}{\baselineskip}\selectfont}
+\def\AbstractCSize{\xiaowuhao\song}
+\def\AbstractESize{\fontsize{10pt}{12pt}\selectfont}
+\def\KeywordsSize{\wuhao\song}
+\def\PACSSize{\fontsize{10pt}{12pt}\selectfont}
+\def\AcknowledgeSize{\xiaowuhao\song}
+\def\AppendixSize{\xiaowuhao\song}
+\def\SubAppendixSize{\xiaowuhao\hei}
+\def\BibliographySize{\liuhao\song}
+\def\CapitalOfPicture{\liuhao\song}
+
+\newcommand\VolumeInfo[3]{\def\@Year{#1}\def\@Volume{#2}\def\@Issue{#3}}
+\newcommand\ThesisNumber[1]{\def\@Number{#1}}
+\newcommand\ThesisDate[2]{\def\@ReceivedDateC{\DateTransC#1}\def\@ReceivedDateE{\DateTransE#1}\def\@RevisedManuscriptRecivedDateC{\DateTransC#2}\def\@RevisedManuscriptRecivedDateE{\DateTransE#2}}
+\newcommand\ThesisTitleC[1]{\def\@ThesisTitleC{#1}}
+\newcommand\ThesisTitleE[1]{\def\@ThesisTitleE{#1}}
+\newcommand\ProjectC[1]{\def\@ProjectC{#1}}
+\newcommand\ProjectE[1]{\def\@ProjectE{#1}}
+\newcommand\Email[1]{\def\@Email{#1}}
+\newlength{\Namewidth}
+\newcounter{NameLocation}
+\newcommand\Name[1]{\settowidth{\Namewidth}{#1}\hskip .5em\ifthenelse{\theNameLocation=0}{\NameCSize\ifthenelse{\lengthtest{\Namewidth=2em}}{\scalebox{0.8}[1]{\TwoToThree#1}}{\scalebox{0.8}[1]{#1}}\hskip .5em}{\hskip .5em#1\hskip .5em}}
+\newcommand\NameTag[1]{\hskip -.5em\raisebox{.6em}{\footnotesize#1}\hskip .5em}
+\newcommand\NameC[1]{\def\@NameC{#1}}
+\newcommand\NameE[1]{\def\@NameE{#1}}
+\newcounter{Department}
+\newcounter{Language}
+\newcommand\Item{\stepcounter{Department}\theDepartment）}
+\newcommand\Department[3]{\ifthenelse{\theLanguage=0}{（#1，#2\hskip 1em#3）\par}{（\textit{#1，#2}\hskip 1em{\rm #3}, \textit{China}）\par}}
+\newcommand\DepartmentsC[1]{\def\@DepartmentsC{#1}}
+\newcommand\DepartmentsE[1]{\def\@DepartmentsE{#1}}
+
+\newcommand\AbstractC[1]{\def\@AbstractC{#1}}
+\newcommand\AbstractE[1]{\def\@AbstractE{#1}}
+\newcommand\KeywordsC[1]{\def\@KeywordsC{#1}}
+\newcommand\KeywordsE[1]{\def\@KeywordsE{#1}}
+\newcommand\PACS[1]{\def\@PACS{#1}}
+\newcommand\Tag[1]{\raisebox{.4em}{\footnotesize[#1]}}
+
+\renewcommand\@biblabel[1]{[\hskip 0.18em#1\hskip 0.18em]}
+\renewenvironment{thebibliography}[1]{\list{\@biblabel{\@arabic\c@enumiv}}{\settowidth\labelwidth{\@biblabel{#1}}\leftmargin\labelwidth\advance\leftmargin\labelsep\@openbib@code\usecounter{enumiv} \let\p@enumiv\@empty\renewcommand\theenumiv{\@arabic\c@enumiv}}\sloppy\clubpenalty4000\@clubpenalty \clubpenalty\widowpenalty4000\sfcode`\.\@m}{\def\@noitemerr{\@latex@warning{Empty`thebibliography' environment}}\endlist}
+\newenvironment{Bib}{\begin{center}\rule{80mm}{1pt}\end{center}\begin{multicols}{2}\begin{thebibliography}{999}\itemsep=-4pt plus.2pt minus.2pt \small}{\end{thebibliography}\end{multicols}}
+
+
+\newcommand\TitleAndProjectCV{\begin{center}\ThesisTitleCSize~~\par~~\par\@ThesisTitleC\footnote{\@ProjectC}\par}
+\newcommand\TitleAndProjectEV{\setcounter{footnote}{0}\begin{center}\begingroup~~\par~~\par\begingroup\ThesisTitleESize\@ThesisTitleE\footnote{\@ProjectE}\par\endgroup~~\par\endgroup}
+\newcommand\EmailCV{\footnotetext[2]{通讯联系人。E-mail：\@Email}}
+\newcommand\EmailEV{\footnotetext[2]{E-mail: \@Email}}
+\newcommand\NameCV{{\NameCSize\vskip .6em\@NameC}\end{center}}
+\newcommand\NameEV{\stepcounter{NameLocation}{\NameESize\@NameE}\end{center}}
+\newcommand\DepartmentsCV{\begin{center}\DepartmentCSize\@DepartmentsC（\@ReceivedDateC 收到；\@RevisedManuscriptRecivedDateC 收到修改稿）\par~~\par\end{center}\setcounter{Department}{0}}
+\newcommand\DepartmentsEV{\stepcounter{Language}\begin{center}\DepartmentESize\textit{\@DepartmentsE}（Received \@ReceivedDateE; revised manuscript received \@RevisedManuscriptRecivedDateE）\par~~\par\end{center}}
+\newcommand\AbstractCV{\begin{center}\begin{minipage}{15.5cm}\AbstractCSize\hskip 2em\@AbstractC\par~~\par\end{minipage}\end{center}}
+\newcommand\AbstractEV{\AbstractESize{\hfill Abstract\hfill\hfill}\par\hskip 2em\@AbstractE\par~~\par}
+\newcommand\KeywordsAndPACSCV{\begin{center}\begin{minipage}{15.5cm}{{\hei 关键词：}\KeywordsSize\@KeywordsC\par\textbf{PACS：}{\PACSSize\@PACS}}\par~~\par\end{minipage}\end{center}}
+\newcommand\KeywordsAndPACSEV{\begin{flushleft}{\PACSSize\textbf{Keywords: }\@KeywordsE\par\textbf{PACS：}\@PACS}\par~~\par\end{flushleft}}
+\AtBeginDocument{\TitleAndProjectCV\EmailCV\NameCV\DepartmentsCV\AbstractCV\KeywordsAndPACSCV}
+\AtEndDocument{\TitleAndProjectEV\EmailEV\NameEV\DepartmentsEV\AbstractEV\KeywordsAndPACSEV}
+\endinput

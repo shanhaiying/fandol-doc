@@ -1,0 +1,67 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{APSlayout}
+\RequirePackage{geometry}
+	\geometry{xetex,twoside,left=23mm,width=170mm,right=17mm,top=15mm,height=240mm,bottom=32mm}
+\RequirePackage{multicol}
+	\setlength{\columnsep}{8mm}
+	\setlength{\multicolsep}{2mm}
+	\setlength{\parskip}{0pt}
+	\setlength{\parindent}{2em}
+\newenvironment{bicol}{\begin{multicols}{2}}{\end{multicols}}
+\RequirePackage{xeCJK}
+	\setCJKmainfont{simsun.ttc}
+	\setCJKsansfont{simsun.ttc}
+	\setCJKmonofont{simsun.ttc}
+	\setCJKfamilyfont{song}{simsun.ttc}
+	\setCJKfamilyfont{hei}{simhei.ttf}
+	\setCJKfamilyfont{fs}{simfang.ttf}
+	\setCJKfamilyfont{kai}{simkai.ttf}
+	\CJKsetecglue{\hskip 0.15em plus 0.05em minus 0.05em}
+	\newcommand\song{\CJKfamily{song}}
+	\newcommand\hei{\CJKfamily{hei}}
+	\newcommand\fs{\CJKfamily{fs}}
+	\newcommand\kai{\CJKfamily{kai}}
+	\punctstyle{banjiao}
+	\newcommand{\chaoda}{\fontsize{55pt}{\baselineskip}\selectfont}
+	\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}   
+	\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} 
+	\newcommand{\yihao}{\fontsize{24pt}{\baselineskip}\selectfont}      
+	\newcommand{\erhao}{\fontsize{22pt}{\baselineskip}\selectfont} 
+	\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}
+	\newcommand{\sanhao}{\fontsize{16pt}{\baselineskip}\selectfont}
+	\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+	\newcommand{\sihao}{\fontsize{14pt}{5mm}\selectfont}
+	\newcommand{\sihaoAd}{\fontsize{14pt}{16.8pt}\selectfont}
+	\newcommand{\xiaosihao}{\fontsize{12pt}{4.2mm}\selectfont}
+	\newcommand{\wuhao}{\fontsize{10.5pt}{4.2mm}\selectfont}
+	\newcommand{\xiaowuhao}{\fontsize{9pt}{11pt}\selectfont}
+	\newcommand{\liuhao}{\fontsize{7.5pt}{9.45pt}\selectfont}
+	\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont} 
+	\linespread{1.25}
+	\renewcommand{\normalsize}{\wuhao}
+\RequirePackage{ifthen}
+\def\@Year{<年>}
+\def\@Volume{<卷>}
+\def\@Issue{<期>}
+\def\@Number{<编号>}
+\newcommand\info[4]{\def\@Year{#1}\def\@Volume{#2}\def\@Issue{#3}\def\@Number{#4}}
+\RequirePackage{fancyhdr}
+	\newcommand\hh{q\par a}
+	\settototalheight\headheight{\hh}
+	\fancyhf{}
+	\pagestyle{fancy}
+	\lhead{\ }                    
+	\chead{\raisebox{-3mm}{\liuhao\hei{物\hskip .8em理\hskip .8em学\hskip .8em报}\hskip 2em\textbf{Acta~Phys.~Sin. Vol.\@Volume, No.\@Issue (\@Year) \@Number}}}                                                
+	\rhead{\ }                                     
+	\lfoot{\ifthenelse{\value{page}=1}{\liuhao\textbf{©\@Year}\hskip 1em{\hei 中国物理学会}\hskip 1em\textbf{Chinese Physical Society }}{\ }}%
+	\cfoot{\raisebox{-4mm}{\liuhao\@Number-\thepage}}
+	\rfoot{\ifthenelse{\value{page}=1}{\liuhao\textbf{\textit{http://wulixb.iphy.ac.cn}}}{\ }}
+	\renewcommand{\headrulewidth}{1pt}
+	\setlength{\skip\footins}{0.5cm}
+	\def\headrule{\ifthenelse{\value{page}=1}%
+		{{\vskip 1mm\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi\hrule\@height 0.5pt \@width\headwidth\vskip0.5mm\hrule\@height 0.5pt \@width\headwidth\vskip-2\headrulewidth\vskip-1pt}\vskip 14mm}%
+		{{\vskip 1mm\if@fancyplain\let\headrulewidth\plainheadrulewidth\fi\hrule\@height 0.5pt \@width\headwidth\vskip0.5mm}\vskip 4mm}%
+		}
+	\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+	\renewcommand{\footnoterule}{\kern-3\p@ \hrule \@width 33mm \kern 2.6\p@\vskip 4mm}
+\endinput
