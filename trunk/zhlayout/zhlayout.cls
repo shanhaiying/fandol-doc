@@ -1,0 +1,51 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{zhlayout}
+\LoadClass{article}
+	\newcommand{\chaoda}{\fontsize{55pt}{\baselineskip}\selectfont}
+	\newcommand{\chuhao}{\fontsize{42pt}{\baselineskip}\selectfont}   
+	\newcommand{\xiaochuhao}{\fontsize{36pt}{\baselineskip}\selectfont} 
+	\newcommand{\yihao}{\fontsize{28pt}{\baselineskip}\selectfont}      
+	\newcommand{\erhao}{\fontsize{21pt}{\baselineskip}\selectfont} 
+	\newcommand{\xiaoerhao}{\fontsize{18pt}{\baselineskip}\selectfont}
+	\newcommand{\sanhao}{\fontsize{15.75pt}{\baselineskip}\selectfont}
+	\newcommand{\xiaosanhao}{\fontsize{15pt}{\baselineskip}\selectfont}
+	\newcommand{\sihao}{\fontsize{14pt}{\baselineskip}\selectfont}
+	\newcommand{\sihaoAd}{\fontsize{14pt}{16.8pt}\selectfont}
+	\newcommand{\xiaosihao}{\fontsize{12pt}{12.6pt}\selectfont}
+	\newcommand{\wuhao}{\fontsize{10.5pt}{12.6pt}\selectfont}
+	\newcommand{\xiaowuhao}{\fontsize{9pt}{11pt}\selectfont}
+	\newcommand{\liuhao}{\fontsize{7.875pt}{9.45pt}\selectfont}
+	\newcommand{\qihao}{\fontsize{5.25pt}{\baselineskip}\selectfont}
+	\linespread{1.25}
+	\renewcommand{\normalsize}{\wuhao}
+\RequirePackage{iftex}
+\ifLuaTeX
+	\RequirePackage{luatexja}
+	\RequirePackage{luatexja-fontspec}
+		\setmainjfont{simsun.ttc}
+		\setsansjfont{simsun.ttc}
+		\newfontfamily\clr{Candara.ttf}
+		\newjfontfamily\song{simsun.ttc}
+		\newjfontfamily\hei{simhei.ttf}
+		\newjfontfamily\fs{simfang.ttf}
+		\newjfontfamily\kai{simkai.ttf}
+\else
+	\ifXeTeX
+		\RequirePackage{xeCJK}
+			\setCJKmainfont{SimSun}
+			\setCJKsansfont{SimSun}
+			\setCJKmonofont{SimSun}
+			\setCJKfamilyfont{song}{SimSun}
+			\setCJKfamilyfont{hei}{SimHei}
+			\setCJKfamilyfont{fs}{SimFang}
+			\setCJKfamilyfont{kai}{SimKai}
+			\newcommand\song{\CJKfamily{song}}
+			\newcommand\hei{\CJKfamily{hei}}
+			\newcommand\fs{\CJKfamily{fs}}
+			\newcommand\kai{\CJKfamily{kai}}
+			\punctstyle{banjiao}
+	\else
+	\relax
+	\fi
+\fi
+\endinput

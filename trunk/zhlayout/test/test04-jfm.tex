@@ -1,0 +1,296 @@
+%#!luatex
+\input luatexja-core.sty
+
+\def\head#1{\medskip\penalty-100\noindent{\bf\tengt ■ #1}\par\penalty10000 }
+\jfont\rml={psft:Ryumin-Light:jfm=ujis} at 10pt
+\rml あ\inhibitglue\char"201Cあ・い←Ryumin-Light
+
+\jfont\rml={file:ipam.ttf:jfm=ujis} at 10pt
+\rml あ\inhibitglue\char"201Cあ・い←IPA\hbox{}明朝 (ipam)
+
+\jfont\rml={file:KozMinPr6N-Regular.otf:jfm=ujis} at 10pt
+\rml あ\inhibitglue\char"201Cあ・い←KozMinPr6N-Regular
+
+\jfont\rml={file:ipamp.ttf:jfm=ujis} at 10pt
+\rml あ\inhibitglue\char"201Cあ・い←IPA P\hbox{}明朝 (ipamp)
+
+{\scrollmode
+\globaljfont\rml={psft:GothicBBB-Medium:jfm=bad} at 10pt % must be error
+}
+\rml あ123 % \rml は未定義となる
+{\tt\meaning\rml}
+
+\bigskip
+\font\rml={file:ipaexg.ttf} at 10pt\rml
+
+ここからは，欧文文字フォントはIPA EXゴシック
+
+
+\head{文字範囲の代入/取得テスト}
+
+\ltjdefcharrange{2}{`あ,"E0-"FF}
+「\char"F4」は2番の文字範囲なので，和文扱いのはず
+
+{iso8859-1 和文扱い:\ltjsetparameter{jacharrange={1}}%
+\ltjgetparameter{jacharrange}{1}%
+§ ¶ ° £ ¥ \char"F4}
+
+{iso8859-1 欧文扱い:\ltjsetparameter{jacharrange={-1}}%
+\ltjgetparameter{jacharrange}{1}%
+§ ¶ ° £ ¥ \char"F4}
+
+
+\head{文字範囲の状況取得}
+\ltjgetparameter{jacharrange}{0}
+\ltjgetparameter{jacharrange}{1}
+\ltjgetparameter{jacharrange}{2}
+
+\head{文字コード→文字範囲}
+\ltjgetparameter{chartorange}{`い} % must be 217
+\ltjgetparameter{chartorange}{`§} % must be 1
+\ltjgetparameter{chartorange}{"F7} % must be 2
+\ltjgetparameter{chartorange}{-1}  % must be error "
+
+\medskip
+\ltjsetparameter{jacharrange={-217}}
+ほとんど欧文扱い．2番は別（「あ」）
+\ltjsetparameter{jacharrange={218}}
+和文扱いにもどる
+
+\head{Ticket \#25121}
+\setbox0=\hbox{\ltjsetparameter{kanjiskip=-5pt}
+あいうえお\hbox{\ltjsetparameter{kanjiskip=12pt}かきくけこ}さしすせそ\par a}\copy0
+\tracingonline=0\showboxdepth=10000\showboxbreadth=10000\tracingonline=1\showbox0
+
+{\ltjsetparameter{kanjiskip=3pt}
+あいうえお{\ltjsetparameter{kanjiskip=-5pt}% this setting is ignored
+かきくけこ}さしすせそ\par}
+
+{\ltjsetparameter{kanjiskip=3pt}
+あいうえおさしすせそ}\par
+
+
+\vfill\eject
+\noindent{\bf\gt  以下はJFMグルー挿入検証}
+\jfont\rmlh={psft:Ryumin-Light:jfm=test} at 10pt
+\jfont\sixgt={psft:GothicBBB-Medium:jfm=ujis} at 6pt
+\font\sixtt=cmtt10 at 6pt
+
+\def\dumplist#1{\par\noindent\leavevmode
+\hbox to 0.2\hsize{\copy#1\hss}%
+\vbox{\hsize=0.6\hsize\sixtt\baselineskip=7.2pt\sixgt\let\\=\relax
+\directlua{ltj.ext_show_node_list(tex.getbox(#1).head, '\\par ', tex.print)}\hrule}}
+
+%\tracingonline=1\tracingoutput=1\showboxdepth=3\showboxbreadth=100
+
+\head{JA--JA (penなし)}
+
+\setbox0=\hbox{\rmlh あア}\dumplist0
+
+\setbox0=\hbox{\rmlh あイ}\dumplist0
+
+\setbox0=\hbox{\rmlh あウ}\dumplist0
+
+\setbox0=\hbox{\rmlh いア}\dumplist0
+
+\setbox0=\hbox{\rmlh いイ}\dumplist0
+
+\setbox0=\hbox{\rmlh いウ}\dumplist0
+
+\head{JA--EN (penなし)}
+
+\setbox0=\hbox{\rmlh あa}\dumplist0
+
+\setbox0=\hbox{\rmlh いa}\dumplist0
+
+\setbox0=\hbox{\rmlh うa}\dumplist0
+
+\setbox0=\hbox{\rmlh えa}\dumplist0
+
+\setbox0=\hbox{\rmlh おa}\dumplist0
+
+\head{EN--JA (penなし)}
+
+\setbox0=\hbox{\rmlh aあ}\dumplist0
+
+\setbox0=\hbox{\rmlh aい}\dumplist0
+
+\setbox0=\hbox{\rmlh aう}\dumplist0
+
+\head{JA--明kern (penなし)}
+
+\setbox0=\hbox{\rmlh あ\kern3pt}\dumplist0
+
+\setbox0=\hbox{\rmlh い\kern3pt}\dumplist0
+
+\setbox0=\hbox{\rmlh う\kern3pt}\dumplist0
+
+\head{明kern--JA (penなし)}
+
+\setbox0=\hbox{\rmlh \kern3ptあ}\dumplist0
+
+\setbox0=\hbox{\rmlh \kern3ptい}\dumplist0
+
+\setbox0=\hbox{\rmlh \kern3ptう}\dumplist0
+
+\head{JA--hbox (penなし)}
+
+\setbox0=\hbox{\rmlh あ\hbox{}}\dumplist0
+
+\setbox0=\hbox{\rmlh い\hbox{}}\dumplist0
+
+\setbox0=\hbox{\rmlh う\hbox{}}\dumplist0
+
+\setbox0=\hbox{\rmlh え\hbox{}}\dumplist0
+
+\setbox0=\hbox{\rmlh あ\hbox{ア}}\dumplist0
+
+\setbox0=\hbox{\rmlh あ\hbox{a}}\dumplist0
+
+\setbox0=\hbox{\rmlh い\hbox{a}}\dumplist0
+
+\head{hbox--JA (penなし)}
+
+\setbox0=\hbox{\rmlh \hbox{}あ}\dumplist0
+
+\setbox0=\hbox{\rmlh \hbox{}い}\dumplist0
+
+\setbox0=\hbox{\rmlh \hbox{}う}\dumplist0
+
+{\vfill\eject%
+
+\ltjsetparameter{prebreakpenalty={`（,123}}
+\ltjsetparameter{postbreakpenalty={`あ,123}}
+\ltjsetparameter{prebreakpenalty={`い,571}, postbreakpenalty={`い,123}}
+\ltjsetparameter{postbreakpenalty={`う,123}}
+\ltjsetparameter{postbreakpenalty={`え,123}}
+\ltjsetparameter{postbreakpenalty={`お,123}}
+\ltjsetparameter{postbreakpenalty={`a,321}}
+\head{JA--JA (penあり)}
+
+\setbox0=\hbox{\rmlh あア}\dumplist0
+
+\setbox0=\hbox{\rmlh あイ}\dumplist0
+
+\setbox0=\hbox{\rmlh あウ}\dumplist0
+
+\setbox0=\hbox{\rmlh いア}\dumplist0
+
+\setbox0=\hbox{\rmlh いイ}\dumplist0
+
+\setbox0=\hbox{\rmlh いウ}\dumplist0
+
+\head{JA--EN (penあり)}
+
+\setbox0=\hbox{\rmlh あa}\dumplist0
+
+\setbox0=\hbox{\rmlh いa}\dumplist0
+
+\setbox0=\hbox{\rmlh うa}\dumplist0
+
+\setbox0=\hbox{\rmlh えa}\dumplist0
+
+\setbox0=\hbox{\rmlh おa}\dumplist0
+
+\head{EN--JA (penあり)}
+
+\setbox0=\hbox{\rmlh aあ}\dumplist0
+
+\setbox0=\hbox{\rmlh aい}\dumplist0
+
+\setbox0=\hbox{\rmlh aう}\dumplist0
+
+\head{JA--hbox (penあり)}
+
+\setbox0=\hbox{\rmlh あ\hbox{ア}}\dumplist0
+
+\setbox0=\hbox{\rmlh あ\hbox{a}}\dumplist0
+
+\setbox0=\hbox{\rmlh い\hbox{a}}\dumplist0
+
+\setbox0=\hbox{\rmlh \hbox{（}い\hbox{）}}\dumplist0
+
+\head{italic correction}
+
+\setbox0=\hbox{\it f\/（\/あ}\dumplist0
+
+}
+
+\vfill\eject
+\noindent{\gt\bf [x]kanjiskipの挿入}
+
+\head{kanjiskip from JFM, autospacing (JA--JA)}
+\setbox0=\hbox{あ\rmlh あ}\dumplist0
+
+{\ltjsetparameter{kanjiskip=\maxdimen}
+\setbox0=\hbox{あ\rmlh あ}\dumplist0
+\jfont\rmlk={psft:Ryumin-Light:jfm=test} at 12pt
+\setbox0=\hbox{\rmlk は\rmlh あ}\dumplist0}
+
+\def\naspc{\ltjsetparameter{autospacing=false}\relax}
+\def\naxspc{\ltjsetparameter{autoxspacing=false}\relax}
+\setbox0=\hbox{あ\naspc ああ}\dumplist0
+
+\head{kanjiskip from JFM/autoxspacing (JA--EN)}
+\setbox0=\hbox{\rmlh まx}\dumplist0
+
+\setbox0=\hbox{\rmlh ま\naxspc x}\dumplist0
+
+\setbox0=\hbox{\naxspc\rmlh まx}\dumplist0
+
+{\ltjsetparameter{xkanjiskip=\maxdimen}\setbox0=\hbox{\rmlh まx}\dumplist0}
+
+{\ltjsetparameter{jaxspmode={`ま,preonly}}
+\setbox0=\hbox{\rmlh まx}\dumplist0}
+{\ltjsetparameter{alxspmode={`x,postonly}}
+\setbox0=\hbox{\rmlh まx}\dumplist0}
+
+\head{xkanjiskip from JFM/autoxspacing (EN--JA)}
+\setbox0=\hbox{\rmlh xま}\dumplist0
+
+\setbox0=\hbox{\rmlh x\naxspc ま}\dumplist0
+
+\setbox0=\hbox{\naxspc\rmlh xま}\dumplist0
+
+{\ltjsetparameter{xkanjiskip=\maxdimen}\setbox0=\hbox{\rmlh xま}\dumplist0}
+
+{\ltjsetparameter{jaxspmode={`ま,postonly}}
+\setbox0=\hbox{\rmlh xま}\dumplist0}
+{\ltjsetparameter{alxspmode={`x,inhibit}}
+\setbox0=\hbox{\rmlh xまおx}\dumplist0}
+
+\head{more than one penalty}
+
+\setbox0=\hbox{\rmlh お\penalty1701\penalty1701\penalty1701い}
+\dumplist0
+\setbox0=\hbox{\rmlh お\penalty1701\penalty1701\penalty1701お}
+\dumplist0
+\setbox0=\hbox{\rmlh あ\penalty1701\penalty1701\penalty1701い}
+\dumplist0
+\setbox0=\hbox{\rmlh あ\penalty1701\penalty1701\penalty1701お}
+\dumplist0
+
+\head{その他: italic correction and accents}
+
+\setbox0=\hbox{\tenrm あ\/j}
+\dumplist0
+\setbox0=\hbox{\tenrm\rmlh れ\v{A}）}
+\dumplist0
+
+\head{その他: box boundary}
+
+\setbox0=\hbox{\rmlh かあか}
+\dumplist0
+\setbox0=\hbox{a\setbox3=\hbox{\rmlh  かあか}\unhbox3a}
+\dumplist0
+\setbox0=\hbox{a\setbox3=\hbox{\rmlh  か}\box3a}
+\dumplist0
+\setbox0=\hbox{\rmlh き\hbox{か}き\hbox{き}き}
+\dumplist0
+
+{\ltjsetparameter{postbreakpenalty={`あ,1000},prebreakpenalty={`あ,1000}}
+\setbox0=\hbox{あ\hbox{（}あ\setbox3=\hbox{（}\unhbox3あ}
+\dumplist0}
+
+
+\end

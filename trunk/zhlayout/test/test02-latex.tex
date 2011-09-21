@@ -1,0 +1,55 @@
+%#! lualatex
+\documentclass{article}
+\usepackage{luatexja}
+\nonstopmode
+
+\makeatletter
+% from jsclasses
+\def\@setfontsize#1#2#3{%
+  \ifx\protect\@typeset@protect
+    \let\@currsize#1%
+  \fi
+  \fontsize{#2}{#3}\selectfont
+  \ifdim\parindent>\z@
+      \parindent=1\zw
+  \fi
+  \ltjsetparameter{kanjiskip={0\zw plus .1\zw minus .01\zw}}%
+  \@tempskipa=\ltjgetparameter{xkanjiskip}%
+  \ifdim\@tempskipa>\z@
+    \ltjsetparameter{xkanjiskip={0.25em plus 0.15em minus 0.06em}}%
+  \fi}
+
+\makeatother
+\begin{document}
+\section{NFSS2 のテスト}
+
+◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}
+
+{\ltjsetparameter{xkanjiskip=0pt}イタリック補正\textit{f}◆{\it f\/}◆\par}
+
+\DeclareFixedFont{\dr}{JY3}{gt}{m}{n}{12}
+あいうえおpqr{\dr かaiu}きく）{\bf （漢字}
+
+{abcdfghjfgあいう辻）\textbf{（辻あ{\Large あ}いう）}}
+
+{abcdfghjfgあいう辻）\textbf{\unkern（辻あ{\Large あ}いう}}
+
+\noindent{\tiny ◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}}
+
+\noindent{\scriptsize ◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}}
+
+\noindent{\footnotesize ◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}}
+
+\noindent{\small ◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}}
+
+\noindent{\normalsize ◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}}
+
+\noindent{\large ◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}}
+
+\noindent{\Large ◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}}
+
+\noindent{\LARGE ◆あいうえおabcかきく{\gt かきくa{\bf uyあ}いう}}
+%\end{document}
+
+
+\end{document}
