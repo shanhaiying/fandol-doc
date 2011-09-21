@@ -1,0 +1,116 @@
+%#!luatex
+\input luatexja.sty
+\input luatexja-compat.sty
+\def\\{\hfill\break}
+\tentt\tenmin
+
+{\tengt ■パラメタ代入テスト}
+
+\catcode`\@=11
+\the\ltj@ykblshift
+\ltjsetparameter{yjabaselineshift=\maxdimen,autoxspacing=false}
+\the\ltj@ykblshift\ 
+\ltjgetparameter{yjabaselineshift}
+
+\ltjgetparameter{kanjiskip},
+\ltjgetparameter{xkanjiskip}
+
+\ltjgetparameter{autospacing},
+\ltjgetparameter{autoxspacing}
+
+\ltjgetparameter{differentjfm}.
+\ltjsetparameter{yjabaselineshift=0pt,autoxspacing=true}
+
+あいうえお{\ltjsetparameter{yjabaselineshift=2pt}かきくけこ}さしすせそ: local
+
+あいうえお{\ltjglobalsetparameter{yjabaselineshift=2pt}かきくけこ}さしすせそ: global
+
+\ltjgetparameter{prebreakpenalty}{`（},
+\ltjgetparameter{prebreakpenalty}{`）},
+\ltjgetparameter{prebreakpenalty}{`あ}
+
+
+\ltjgetparameter{postbreakpenalty}{`（},
+\ltjgetparameter{postbreakpenalty}{`）},
+\ltjgetparameter{postbreakpenalty}{`あ}
+
+a\inhibitglue （a）\inhibitglue aあa〜a
+
+\medskip
+xspmode
+
+\ltjgetparameter{jaxspmode}{`（},
+\ltjgetparameter{jaxspmode}{`）},
+\ltjgetparameter{jaxspmode}{`あ},
+\ltjgetparameter{jaxspmode}{`〜}
+
+\ltjsetparameter{alxspmode={`\b,inhibit}}
+あ[あ]あaあbあ
+
+\ltjgetparameter{alxspmode}{`[},
+\ltjgetparameter{alxspmode}{`]},
+\ltjgetparameter{alxspmode}{`a},
+\ltjgetparameter{alxspmode}{`b}
+
+{\ltjsetparameter{kanjiskip=0pt plus 1fi minus 1fil}\ltjgetparameter{kanjiskip}\par}
+{x\ltjsetparameter{kanjiskip=0pt plus 1fill minus 1filll}\ltjgetparameter{kanjiskip}\par}
+
+\medskip
+{\tengt ■合字テスト}
+
+\tenrm
+{\ltjsetparameter{alxspmode={`i,preonly},yjabaselineshift=0pt}
+あiあfiあffiあ\par}
+
+{\ltjsetparameter{alxspmode={`f,postonly},yjabaselineshift=0pt}
+あfあfiあffiあ\par}
+
+\ltjsetparameter{alxspmode={-1,inhibit}}
+あ$a$あ
+う{}
+い
+
+\medskip
+{\tengt ■ltjgetparameter}
+
+\ltjsetparameter{yalbaselineshift=2pt}
+\edef\yabls{\ltjgetparameter{yalbaselineshift}}
+\ltjsetparameter{yalbaselineshift=3pt}
+\dimen255=\yabls\relax\the\dimen255
+
+\medskip
+{\tengt ■compat: kansuji}
+\kansuji{1}\ 
+\kansuji{10}\ 
+\kansuji{-32445}
+
+\char\jis{"346E}
+\char\kuten{"253C}
+\char\euc{"B0A5}
+\char\sjis"8A79
+%\char\sjis{"B4}
+%\char\euc"8EBE
+
+\medskip
+{\tengt ■error messages}
+\nonstopmode
+
+\char\sjis{XXX}
+
+{\ltjsetparameter{kanjiskip=4pt, autoxspacing=true}
+\ltjdefcharrange{6576}{67666677}\ltjdefcharrange{1}{67666677,345-12}
+\ltjgetparameter{prebreakpenalty}{3298677}
+\ltjgetparameter{jacharrange}{3298677}
+あいうえお\par}
+
+
+{\tengt ■globaldefs}
+
+abc\ltjgetparameter{yalbaselineshift}
+{\globaldefs1\ltjsetparameter{yalbaselineshift=2pt}}% global (by \globaldefs)
+\ltjgetparameter{yalbaselineshift}
+{\ltjglobalsetparameter{yalbaselineshift=1pt}}% global (explicit)
+\ltjgetparameter{yalbaselineshift}
+{\ltjglobalsetparameter{yalbaselineshift=4pt}}% local
+\ltjgetparameter{yalbaselineshift}
+\end

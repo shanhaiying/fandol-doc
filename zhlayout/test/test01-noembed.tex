@@ -1,0 +1,92 @@
+%#! luatex
+\input luatexja-core.sty
+
+\let\tengoth=\tengt
+\jfont\jisse={psft:Ryumin-Light:script=latn;+jp78;jfm=ujis}
+\jfont\jisexpt={psft:Ryumin-Light:script=latn;+expt;jfm=ujis}
+\jfont\jishwid={psft:Ryumin-Light:script=latn;+hwid;jfm=ujis}
+%\font\tmihwid={psft:Ryumin-Light:script=latn;+hwid}
+\jfont\jisnalt={psft:Ryumin-Light:script=latn;+nalt;jfm=ujis}
+\jfont\jistrad={psft:Ryumin-Light:script=latn;+trad;jfm=ujis}
+\jfont\jissups={psft:Ryumin-Light:script=latn;+sups;jfm=ujis}
+\jfont\jisliga={psft:Ryumin-Light:script=latn;+liga;jfm=ujis}
+%\font\tmiliga={psft:Ryumin-Light:script=latn;+liga}
+\jfont\jisvert={psft:Ryumin-Light:script=latn;+vert;jfm=ujis}
+\parskip=\smallskipamount\parindent=1\zw
+
+{\noindent\bf\tengoth jfm-ujis.lua を使用}
+
+\bigskip
+
+{\noindent\bf\tengoth luaotf\/load による feature との共存状況（非埋め込み版）}
+
+{\noindent\bf\tengoth 注: 表示はビューワによって実際に用いられるフォントに依存します．}
+
+{\tentt expt} feature: 剥→{\jisexpt 剥}
+
+{\tentt jp78} feature: 辻→{\jisse 辻}
+
+{\tentt hwid} feature: アイｳｴ→{\jishwid アイｳｴ}\hfil\break
+↑文字クラスが変わらないので幅も変わらない．
+
+{\tentt nalt} feature: 男→{\jisnalt 男}
+
+{\tentt trad} feature: 医学→{\jistrad 医学}
+
+{\tentt sups} feature: 注１注1→{\jissups 注１注1}\hfil\break
+↑文字クラスが変わらないので幅も変わらない．
+
+{\tentt liga} feature: か゚き゚く゚け゚こ゚→{\jisliga か゚き゚く゚け゚こ゚}\hfil\break
+↑合字用の半濁点（{\tentt U+309A}）を用いれば成功する．単体用（{\tentt U+309C}）では失敗する．%比較：{\tmiliga か゜き゜く゜け゜こ゜}
+%{\tentt liga} feature: か゜き゜く゜け゜こ゜→{\jisliga か゜き゜く゜け゜こ゜}\hfil\break
+%↑なぜかうまくいかない．%比較：{\tmiliga か゜き゜く゜け゜こ゜}
+
+{\tentt vert} feature: あ（㌢㍍），い→{\jisvert あ（㌢㍍），い}\hfil\break
+↑縦組み時に気にすればいいか．
+
+\bigskip
+
+\noindent あいうえお
+
+「あいうえお←全角下がりが正しい（{\tt'boxbdd'}のテスト1）
+
+{\tt'boxbdd'}のテスト2: \vrule\hbox{「」}\vrule ←正しい実装ならば2本の罫線の間は全角幅
+
+
+\bigskip
+{\noindent\bf\tengt ■{\tt differentjfm}による挙動の違い}
+
+\jfont\tenMa={psft:Ryumin-Light:jfm=ujis}
+\jfont\tenMb={psft:Ryumin-Light:jfm=ujis;jfmvar=a}
+\jfont\tenGa={psft:GothicBBB-Medium:jfm=ujis} at 15pt
+\jfont\tenGb={psft:GothicBBB-Medium:jfm=ujis;jfmvar=a} at 15pt\relax
+
+\def\djtest{%
+{\tt Ma-Ma}: \setbox0=\hbox{{\tenMa ）}{\tenMa  ・}}\hbox to 90pt{\copy0\hss(\the\wd0)},
+{\tt Ma-Mb}: \setbox0=\hbox{{\tenMa ）}{\tenMb ・}}\hbox to 90pt{\copy0\hss(\the\wd0)},
+{\tt Mb-Mb}: \setbox0=\hbox{{\tenMb ）}{\tenMb ・}}\hbox to 90pt{\copy0\hss(\the\wd0)},
+
+{\tt Ma-Ga}: \setbox0=\hbox{{\tenMa ）}{\tenGa ・}}\hbox to 90pt{\copy0\hss(\the\wd0)},
+{\tt Ma-Gb}: \setbox0=\hbox{{\tenMa ）}{\tenGb ・}}\hbox to 90pt{\copy0\hss(\the\wd0)},
+{\tt Mb-Gb}: \setbox0=\hbox{{\tenMb ）}{\tenGb ・}}\hbox to 90pt{\copy0\hss(\the\wd0)}%
+}
+
+{\noindent\bf\tengt {\tt differentjfm=small}（小さい方）}
+
+\ltjsetparameter{differentjfm=small}\djtest
+
+{\noindent\bf\tengt {\tt differentjfm=large}（大きい方）}
+
+\ltjsetparameter{differentjfm=LARGE}\djtest
+
+{\noindent\bf\tengt {\tt differentjfm=average}（default，平均）}
+
+\ltjsetparameter{differentjfm=AVERAGE}\djtest
+
+{\noindent\bf\tengt {\tt differentjfm=both}（両方挿入）}
+
+\ltjsetparameter{differentjfm=Both}\djtest
+
+
+\end
+
