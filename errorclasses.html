@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en"><head>
+<!-- saved from url=(0028)http://www.errorclasses.com/ --><title>Latex Error Classes</title>
+
+
+<meta content="Latex Error Classes" name="KEYWORDS">
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+<meta content="index,follow" name="robots"><link href="http://www.cs.utexas.edu/favicon.ico" rel="shortcut icon">
+<script src="" type="text/javascript"></script>
+
+<meta content="MSHTML 6.00.6000.16441" name="GENERATOR"></head><body onload="" bgcolor="#ffffff">
+<div id="article">
+<h1 class="pagetitle">LaTeX报错列表</h1>Fandol基金会文档<br>
+Clerk Ma翻译<br>
+2011年9月26日<br>
+原文地址：<a href="http://www.cs.utexas.edu/%7Ewitchel/errorclasses.html">http://www.cs.utexas.edu/~witchel/errorclasses.html</a><br>
+<a name="Ambiguous_Errors"></a>
+<h2>歧义错误 </h2>
+<p>该处是歧义错误的类别清单。下面列出了不同原因的报错和错误输出。 </p>
+<table class="wikitable" style="text-align: left;" border="1">
+  <tbody>
+  <tr>
+    <th>S.No </th>
+    <th>类 </th>
+    <th>报错信息 </th>
+    <th>报错原因 </th></tr>
+  <tr>
+    <td>1 </td>
+    <td>e_des </td>
+    <td>! LaTeX Error: There's no line here to end </td>
+    <td>在description环境长标签后使用\\ 
+  </td></tr>
+  <tr>
+    <td>2 </td>
+    <td>e_center </td>
+    <td>! LaTeX Error: There's no line here to end </td>
+    <td>在center环境首行后使用\\<br>
+ </td></tr>
+  <tr>
+    <td>3 </td>
+    <td>e_foot </td>
+    <td>&nbsp;! Argument of \@sect has an extra } </td>
+    <td>在\section中使用弱命令 </td></tr>
+  <tr>
+    <td>4 </td>
+    <td>e_ragged </td>
+    <td>&nbsp;! Argument of \@caption has an extra } </td>
+    <td>\raggedright或\raggedleft环境中使用\\<br>
+ </td></tr>
+  <tr>
+    <td>5 </td>
+    <td>e_and </td>
+    <td>&nbsp;! Extra alignment tab has been changed to \cr </td>
+    <td>table，array或eqnarray.环境中&amp;过多 </td></tr>
+  <tr>
+    <td>6 </td>
+    <td>e_cline </td>
+    <td>&nbsp;! Extra alignment tab has been changed to \cr </td>
+    <td>\cline的参考栏不存在 </td></tr>
+  <tr>
+    <td>7 </td>
+    <td>e_col </td>
+    <td>&nbsp;! Extra alignment tab has been changed to \cr. </td>
+    <td>tabular*环境中使用@<br>
+ </td></tr>
+  <tr>
+    <td>8 </td>
+    <td>e_num </td>
+    <td>&nbsp;! Missing number treated as zero </td>
+    <td>\\后使用非数参数 </td></tr>
+  <tr>
+    <td>9 </td>
+    <td>e_asterisk </td>
+    <td>Missing * at the end of the line </td>
+    <td>\\后*未与括号使用 </td></tr>
+  <tr>
+    <td>10 </td>
+    <td>e_pbox_miss</td>
+    <td>&nbsp;! Missing number, treated as zero. </td>
+    <td>\parbox[t]{} ..参数丢失 </td></tr>
+  <tr>
+    <td>11 </td>
+    <td>e_mis_circle</td>
+    <td>&nbsp;! Missing number, treated as zero. </td>
+    <td>\circle丢失数参数 </td></tr>
+  <tr>
+    <td>12 </td>
+    <td>e_list </td>
+    <td>&nbsp;! Argument of \lst@next has an extra } </td>
+    <td>弱命令\parbox中使用1stlisting </td></tr>
+  <tr>
+    <td>13 </td>
+    <td>e_capacity </td>
+    <td>&nbsp;! TeX capacity exceeded, sorry [input stack size=1500] </td>
+    <td>弱命令\parbox中使用1stlisting </td></tr>
+  <tr>
+    <td>14 </td>
+    <td>e_runaway </td>
+    <td>Runaway argument? </td>
+    <td>括号丢失，如 \cline{1-2 替换为\cline{1-2} </td></tr>
+  <tr>
+    <td>15 </td>
+    <td>e_verbatim </td>
+    <td>Runaway argument? </td>
+    <td>在其他命令中使用抄录，例如\ifthenelse 
+  </td></tr>
+  <tr>
+    <td>16 </td>
+    <td>e_undefined </td>
+    <td>! Undefined control sequence </td>
+    <td>未知命令 </td></tr>
+  <tr>
+    <td>17 </td>
+    <td>e_footnote </td>
+    <td>! Undefined control sequence </td>
+    <td>\footnote中使用\footnote </td></tr>
+  <tr>
+    <td>18 </td>
+    <td>e_integral</td>
+    <td>&nbsp;! Missing { inserted. </td>
+    <td>配对越界 <br>
+</td></tr>
+  <tr>
+    <td>19 </td>
+    <td>e_zeta</td>
+    <td>&nbsp;! Missing { inserted. </td>
+    <td>下标错误<br>
+ </td></tr>
+  <tr>
+    <td>20 </td>
+    <td>e_bezier </td>
+    <td>&nbsp;! Illegal unit of measure (pt inserted). </td>
+    <td>\qbezier丢失数值参数 </td></tr>
+  <tr>
+    <td>21 </td>
+    <td>e_too_bezier </td>
+    <td>&nbsp;! Illegal unit of measure (pt inserted). </td>
+    <td>\qbezier选项过多 </td></tr>
+  <tr>
+    <td>22 </td>
+    <td>e_unit </td>
+    <td>&nbsp;! Illegal unit of measure (pt inserted) </td>
+    <td>\parbox[t]{2} ..第二参数单位非法 </td></tr>
+  <tr>
+    <td>23 </td>
+    <td>e_symfoot</td>
+    <td>&nbsp;! LaTeX Error: Counter too large. </td>
+    <td>使用symbolic脚注时大于9个<br>
+ </td></tr>
+  <tr>
+    <td>24 </td>
+    <td>e_large_count</td>
+    <td>&nbsp;! LaTeX Error: Counter too large. </td>
+    <td>计数器值&gt;26 
+    </td></tr>
+  <tr>
+    <td>25 </td>
+    <td>e_begin </td>
+    <td>! LaTeX Error: Missing \begin{document} </td>
+    <td>\begin{document}前或\begin{document}后存在文本<br>
+ </td></tr>
+  <tr>
+    <td>26 </td>
+    <td>e_margin</td>
+    <td>&nbsp;! LaTeX Error: Missing \begin{document}. </td>
+    <td>\marginsize误用 </td></tr></tbody></table>
+<hr>
+<a name="Common_Errors"></a>
+<h2>一般错误 </h2>
+<table class="wikitable" style="text-align: left;" border="1">
+  <tbody>
+  <tr>
+    <th>S.No </th>
+    <th>类 </th>
+    <th>报错信息 </th>
+    <th>报错原因 </th></tr>
+  <tr>
+    <td>1 </td>
+    <td>e_fileEnd </td>
+    <td>! File ended while scanning use of \end. </td>
+    <td>一般为括号丢失引起 </td></tr>
+  <tr>
+    <td>2 </td>
+    <td>e_end </td>
+    <td>No message only an asterisk, i.e * </td>
+    <td>\end{document}丢失 </td></tr>
+  <tr>
+    <td>3 </td>
+    <td>e_illegal </td>
+    <td>LaTeX Error: Illegal character in array arg </td>
+    <td>使用r,l和c之外的字符<br>
+ </td></tr>
+  <tr>
+    <td>4 </td>
+    <td>e_tab </td>
+    <td>! Misplaced alignment tab character &amp; </td>
+    <td>丢失\begin{tabular}<br>
+ </td></tr>
+  <tr>
+    <td>5 </td>
+    <td>e_backslash </td>
+    <td>! Missing \endcsname inserted </td>
+    <td>环境名中使用反斜线，例如\begin{\itemize} </td></tr>
+  <tr>
+    <td>6 </td>
+    <td>e_delimiter </td>
+    <td>! LaTeX Error: Bad math environment delimiter </td>
+    <td>array环境后的\right丢失 </td></tr>
+  <tr>
+    <td>7 </td>
+    <td>e_right </td>
+    <td>! Extra \right </td>
+    <td>\right未与\left配对 ，或 \end{array}丢失<br>
+ </td></tr>
+  <tr>
+    <td>8 </td>
+    <td>e_package </td>
+    <td>! LaTeX Error: Can only be used in preamble </td>
+    <td>\usepackage脱离导言区 </td></tr>
+  <tr>
+    <td>9 </td>
+    <td>e_math </td>
+    <td>! Missing $ inserted </td>
+    <td>数学模式丢失$，例如m_e被替换为$m_e$ 
+    </td></tr>
+  <tr>
+    <td>10 </td>
+    <td>e_parameter </td>
+    <td>! Illegal parameter number in definition of... </td>
+    <td>\newcommand参数过多，\newcommand{\test}[1]{#3} </td></tr>
+  <tr>
+    <td>11 </td>
+    <td>e_cmd </td>
+    <td>! LaTeX Error: Command ... already defined </td>
+    <td>试图定义已存在命令，\newcommand{\time} 
+  </td></tr>
+  <tr>
+    <td>12 </td>
+    <td>e_caption </td>
+    <td>&nbsp;! LaTeX Error: \caption outside float </td>
+    <td>table环境外使用\caption{...}<br>
+ </td></tr>
+  <tr>
+    <td>13 </td>
+    <td>e_braces </td>
+    <td>&nbsp;! Too many }'s </td>
+    <td>丢失\begin{table}声明 </td></tr>
+  <tr>
+    <td>14 </td>
+    <td>e_parbox </td>
+    <td>&nbsp;! Argument of \@caption has an extra } </td>
+    <td>在\caption中使用\parbox </td></tr>
+  <tr>
+    <td>15 </td>
+    <td>e_item</td>
+    <td>&nbsp;! LaTeX Error: Something's wrong--perhaps a missing \item </td>
+    <td>enumerate环境丢失\item<br>
+ </td></tr>
+  <tr>
+    <td>16 </td>
+    <td>e_fraction</td>
+    <td>&nbsp;! Argument of \end has an extra } </td>
+    <td>分数命令误用，例如\frac{1,2} </td></tr>
+  <tr>
+    <td>17 </td>
+    <td>e_verb</td>
+    <td>&nbsp;! LaTeX Error: \verb ended by end of line </td>
+    <td>\verb后断行，例如\verb*dir* </td></tr>
+  <tr>
+    <td>18 </td>
+    <td>e_invalid</td>
+    <td>&nbsp;! LaTeX Error: Command \end{itemize} invalid in math mode </td>
+    <td>在\itemize使用数学时丢失$ </td></tr>
+  <tr>
+    <td>19 </td>
+    <td>e_equation</td>
+    <td>&nbsp;! Display math should end with $$ </td>
+    <td>等式中使用$$<br>
+ </td></tr>
+  <tr>
+    <td>20 </td>
+    <td>e_column</td>
+    <td>&nbsp;! Misplaced \omit </td>
+    <td>在tabular环境中使用\newcommand和\multicolumn 
+</td></tr>
+  <tr>
+    <td>21 </td>
+    <td>e_subscript</td>
+    <td>&nbsp;! Double subscript. </td>
+    <td>使用双下标 </td></tr>
+  <tr>
+    <td>22 </td>
+    <td>e_cls</td>
+    <td>&nbsp;! LaTeX Error: File `artcle.cls' not found. </td>
+    <td>丢失.sty或.cls文件<br>
+ </td></tr>
+  <tr>
+    <td>23 </td>
+    <td>e_nofile</td>
+    <td>&nbsp;! LaTeX Error: File `file1.tex' not found. </td>
+    <td>丢失1.tex文件，例如\input{file1.tex} </td></tr>
+  <tr>
+    <td>24 </td>
+    <td>e_sty</td>
+    <td>&nbsp;! LaTeX Error: File `anysize1.sty' not found </td>
+    <td>宏包不可用 </td></tr>
+  <tr>
+    <td>25 </td>
+    <td>e_doc_class</td>
+    <td>&nbsp;! LaTeX Error: Can be used only in preamble. </td>
+    <td>\documentclass脱离导言区<br>
+ </td></tr>
+  <tr>
+    <td>26 </td>
+    <td>e_circle</td>
+    <td>&nbsp;! LaTeX Error: Command \circle invalid in math mode. </td>
+    <td>数学模式中使用\circle<br>
+ </td></tr>
+  <tr>
+    <td>27 </td>
+    <td>e_picture</td>
+    <td>&nbsp;! Use of \pictur@ doesn't match its definition. </td>
+    <td>\picture参数错误 </td></tr>
+  <tr>
+    <td>28 </td>
+    <td>e_line</td>
+    <td>&nbsp;! Use of \put dosen't match its definition </td>
+    <td>\line指令格式错误 </td></tr>
+  <tr>
+    <td>29 </td>
+    <td>e_line_arg</td>
+    <td>&nbsp;! LaTeX Error: Bad \line or \vector argument. </td>
+    <td>错误\line参数<br>
+ </td></tr>
+  <tr>
+    <td>30 </td>
+    <td>e_counter</td>
+    <td>&nbsp;! LaTeX Error: No counter '10' defined. </td>
+    <td>未定义计数器 </td></tr>
+  <tr>
+    <td>31 </td>
+    <td>e_outer </td>
+    <td>&nbsp;! LaTeX Error: Not in outer par mode. </td>
+    <td>在parbox中使用figure </td></tr>
+  <tr>
+    <td>32 </td>
+    <td>e_minipage </td>
+    <td>&nbsp;! LaTeX Error: Not in outer par mode. </td>
+    <td>在minipage中使用figure </td></tr>
+  <tr>
+    <td>33 </td>
+    <td>e_lost </td>
+    <td>&nbsp;! LaTeX Error: Float(s) lost. </td>
+    <td>未定义计数器<br>
+ </td></tr>
+  <tr>
+    <td>34 </td>
+    <td>e_lonely </td>
+    <td>&nbsp;! LaTeX Error: Lonely \item--perhaps a missing list environment. 
+    </td>
+    <td>在list环境外使用\item<br>
+ </td></tr>
+  <tr>
+    <td>35 </td>
+    <td>e_parg</td>
+    <td>&nbsp;! LaTeX Error: Missing p-arg in array arg. </td>
+    <td>tabular环境中丢失p参数<br>
+ </td></tr>
+  <tr>
+    <td>36 </td>
+    <td>e_hash </td>
+    <td>&nbsp;! You can't use `macro parameter character #' in vertical mode. 
+    </td>
+    <td>一般模式下使用#<br>
+ </td></tr>
+  <tr>
+    <td>37 </td>
+    <td>e_enlarge</td>
+    <td>&nbsp;! LaTeX Error: Suggested extra height (14454.0pt) dangerously 
+      large. </td>
+    <td>\enlargethispage给出数值过大 </td></tr>
+  <tr>
+    <td>38 </td>
+    <td>e_deftab</td>
+    <td>&nbsp;! LaTeX Error: Undefined tab position. </td>
+    <td>未定义tabbing </td></tr>
+  <tr>
+    <td>39 </td>
+    <td>e_pushtab</td>
+    <td>&nbsp;! LaTeX Error: \pushtabs and \poptabs don't match. </td>
+    <td>push和pop tabs不匹配 </td></tr>
+  <tr>
+    <td>40 </td>
+    <td>e_overtab</td>
+    <td>&nbsp;! LaTeX Error: Tab overflow. </td>
+    <td>tabbing环境中\=过多<br>
+ </td></tr>
+  <tr>
+    <td>41 </td>
+    <td>e_nest</td>
+    <td>&nbsp;! LaTeX Error: Too deeply nested. </td>
+    <td>list环境过多<br>
+ </td></tr>
+  <tr>
+    <td>42 </td>
+    <td>e_eqnarray</td>
+    <td>&nbsp;! LaTeX Error: Too many columns in eqnarray environment. </td>
+    <td>eqnarray环境中多于3栏 </td></tr>
+  <tr>
+    <td>43 </td>
+    <td>e_classpkg</td>
+    <td>&nbsp;! LaTeX Error: \usepackage before \documentclass. </td>
+    <td>宏包使用在文档类之前 </td></tr>
+  <tr>
+    <td>44 </td>
+    <td>e_load</td>
+    <td>&nbsp;! LaTeX Error: Two \LoadClass commands. </td>
+    <td>文档类加载过多 </td></tr>
+  <tr>
+    <td>45 </td>
+    <td>e_require</td>
+    <td>&nbsp;! LaTeX Error: \RequirePackage or \LoadClass in Options Section. 
+    </td>
+    <td>被需宏包不可使用\DeclareOption </td></tr>
+  <tr>
+    <td>46 </td>
+    <td>e_twoclass</td>
+    <td>&nbsp;! LaTeX Error: Two \documentclass or \documentstyle commands. 
+</td>
+    <td>多文档类声明 </td></tr>
+  <tr>
+    <td>47 </td>
+    <td>e_font</td>
+    <td>&nbsp;! LaTeX Error: This NFSS system isn't set up properly. </td>
+    <td>\DeclareErrorFont中字体不可用 </td></tr>
+  <tr>
+    <td>48 </td>
+    <td>e_superscript</td>
+    <td>&nbsp;! Double superscript. </td>
+    <td>双上标，例如2^3^4 </td></tr>
+  <tr>
+    <td>49 </td>
+    <td>e_clash_opt</td>
+    <td>&nbsp;! LaTeX Error: Option clash for package csvtools. </td>
+    <td>同宏包选项冲突 </td></tr>
+  <tr>
+    <td>50 </td>
+    <td>e_unknown_opt</td>
+    <td>&nbsp;! LaTeX Error: Unknown option ... for package ... </td>
+    <td>未定义宏包选项 </td></tr>
+  <tr>
+    <td>51 </td>
+    <td>e_hyphenation </td>
+    <td>&nbsp;! Improper \hyphenation will be flushed. </td>
+    <td>\hyphenation的参数不当 </td></tr>
+  <tr>
+    <td>52 </td>
+    <td>e_stack_size</td>
+    <td>&nbsp;! TeX capacity exceeded, sorry [main memory size=1000000] </td>
+    <td>溢出，命令定义错误 </td></tr>
+  <tr>
+    <td>53 </td>
+    <td>e_environment</td>
+    <td>&nbsp;! LaTeX Error: Environment ... undefined. </td>
+    <td>未定义环境 </td></tr>
+  <tr>
+    <td>54 </td>
+    <td>e_midline</td>
+    <td>&nbsp;! LaTeX Error: \&lt; in mid line </td>
+    <td>命令 \&lt; 应置于行开始处 </td></tr>
+  <tr>
+    <td>55 </td>
+    <td>e_infinite</td>
+    <td>Goes into infinite loop </td>
+    <td>\\strut\hrule用法 </td></tr></tbody></table>
+<hr>
+</div><br clear="all">
+</body></html>
