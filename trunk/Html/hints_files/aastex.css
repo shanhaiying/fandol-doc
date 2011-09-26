@@ -1,0 +1,34 @@
+body { background-color: white; color: black; font-size: 90%}
+
+h1 { font-weight: bold; font-size: medium; text-align: left; margin-top: 50px; font-family: Arial, Helvetica, sans-serif }
+h2 { font-weight: bold; font-size: medium; text-align: left; font-family: Arial, Helvetica, sans-serif;  margin-top: 50px }
+h3 { font-weight: bold; text-align: left; font-family: Arial, Helvetica, sans-serif;  margin-top: 50px }
+h4 { font-weight: bold; text-align: left; font-family: Arial, Helvetica, sans-serif }
+h5 { font-weight: bold; text-align: left; font-family: Arial, Helvetica, sans-serif }
+h6 { font-weight: bold; text-align: left; font-family: Arial, Helvetica, sans-serif }
+
+table { background-color: white; color: black; font-size: 99% }
+
+A {font-family: Arial, Helvetica, sans-serif}
+
+A:link { text-decoration: none; color: #003366 ; font-weight: bold }
+A:visited { text-decoration: none; color: #003366; font-weight: bold }
+A:hover { text-decoration: underline; color: #003366; font-weight: bold }
+
+A.helpmail { font-weight: bold }
+
+dt { font-weight: bold; font-family: Arial, Helvetica, sans-serif }
+dd { margin-bottom: 20px }
+
+ol { font-weight: bold; font-family: Arial, Helvetica, sans-serif }
+
+.hang { text-indent: -1pc; margin-left:1em }
+
+P.footer { font-size: 85%; margin-top: 1px; margin-bottom: 1px }
+
+code { font-family: courier new, courier, mono }
+
+li.item {
+	margin-bottom: 10px;
+	line-height: 15px;
+}
