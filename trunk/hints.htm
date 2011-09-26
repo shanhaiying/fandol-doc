@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//IETF//DTD HTML 3.2//EN">
+<html><head>
+
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><title>Some Helpful TeX Hints</title> 
+ 
+<meta name="Generator" content="HTMLed32 Version 2.0d"> 
+<link href="hints_files/aastex.css" rel="stylesheet" type="text/css"></head><body alink="#000099" bgcolor="#ffffff" link="#000099" vlink="#000099"> 
+
+ 
+<table align="center">
+<tbody><tr><td valign="CENTER"><img src="hints_files/aas_logo.gif"></td><td valign="CENTER"><font size="+2">一些TeX心得</font></td></tr>
+</tbody></table> 
+
+<p style="text-align: center;">Fandol基金会文档</p>
+<p style="text-align: center;">Clerk Ma翻译</p>
+<p style="text-align: center;">2011年9月26日<br>
+</p>
+
+<p style="text-align: center;">原文地址：<a href="http://dopey.mcmaster.ca/AASTeX/hints.html">http://dopey.mcmaster.ca/AASTeX/hints.html</a><br>
+</p>
+<p>排版与输入不同，TeX也不同于其他的文字处理工具。本文谈及一些需要特殊主义的TeX的格式问题。 
+</p>
+
+
+<h3><a name="sc1">1. 文本</a></h3>
+ 
+<ul><li>TeX中，词后和句后应放置空格，放置多少空格都可以，甚至是100个。TeX将输入文件中的行结束视作空格。段落使用空行分割。&nbsp;<br>
+ </li></ul> 
+
+<ul><li>TeX会自动处理行尾的连字号与文字分割，所以不必以连字号分断文字。否则会在行中出现连字符如 
+"author-prepared copy。"</li></ul>
+ 
+<ul><li>引号需输入为成对的左引号和右引号，如 <img src="hints_files/ldquo.gif" align="top">quoted text<img src="hints_files/rdquo.gif" align="top">； 不要使用双引号(<tt>"bad form"</tt>)。 </li></ul>
+ 
+<ul><li>不要使用下划线。在排版中，强调的文本会使用变换字体实现，通常是<i>slanted</i> 或者<i>italic</i>字体。<br>
+</li>
+</ul>
+
+<ul><li>一些普通字符被解释为命令，因此，如果想用到正文中，需要在之前放置反斜线（\）： <tt>$</tt> <tt>&amp;</tt> <tt>%</tt> <tt>#</tt> <tt>{</tt> 和 <tt>}</tt> 需输入为 <tt>\$</tt> <tt>\&amp;</tt> <tt>\%</tt> <tt>\#</tt> <tt>\{</tt> 和 <tt>\}</tt>。
+</li></ul> 
+
+<ul>
+<li>不推荐使用增加垂直或水平距离。注意多使用标记命令处理文档的内容和细节，而不是担心排印出的页面。
+</li></ul> 
+
+ 
+<h3><a name="sc2">2. 数学</a></h3>
+ 
+<p>正文中的数学式需使用$， 例如<tt>$\pi r^2$</tt> 生成 <img src="hints_files/pi.gif" name="pi.gif"><tt><i>r</i><sup>2</sup></tt>。如想改变上下标为Roman字体，需使用<tt>\rm</tt>命令，如<tt>$J_{\rm HF}(t)$生成</tt><tt><i>J</i><sub>HF</sub>(<i>t</i>)</tt>。</p>
+<p>特显公式可以使用多种方式输出。参见有关特显公式标记的用户手册。</p>
+ 
+<p>如果作者可以定义自己的公式编号，令LaTeX自动生成编号并不烦难。默认情况下，LaTeX会按照通篇文章来进行编号。 <br>
+</p>
+ 
+<h3><a name="sc3">3. 交叉引用</a></h3>
+
+<p>文本中的公式，表格和图像的交叉引用依赖于“keys”的使用，这些需由用户定义。<tt>\label命令用来定义</tt>LaTeX中交叉引用的keys， <tt>\ref命令用来</tt>关联keys。  Keys是普通的文本串，用来标记灯饰，表格和图像，故它们可以在文本中像符号一样被关联。对于节和类似的，放置<tt>\label命令于标记命令之后来开启关联结构。</tt> 对于图像和表格标题，置<tt>\label</tt>命令<span style="font-family: monospace;">于</span><tt>\caption</tt>，<tt>\tablecaption</tt>或<tt>\figcaption</tt>，例如：<br>
+ </p>
+<ul>
+<tt>\tablecaption{This is a caption.\label{tab1}}</tt><br> 
+</ul>
+<p> 不要再你的论文中关联页码。</p>
+ 
+<p>LaTeX会在当前工作目录下生成含有引用关联的辅助文件，扩展名为 <tt>.aux</tt>。该文件不能删除，LaTeX会处理辅助文件中的数据来生成引用。 </p>
+ 
+<p>辅助文件机制会使运行LaTeX多次便可确保交叉引用正常工作。当有关数字发生变更时，会改变等式，表格和其他类型的编号。LaTeX会自动生成警告信息来建议用户更新交叉引用。<br>
+ </p>
+ 
+<hr> 
+<font size="-1"> 
+<b>Last change:</b> 29 April 1999<br> 
+<address><a href="mailto:aastex-help@aas.org">aastex-help@aas.org</a></address> 
+</font> 
+ 
+</body></html>
