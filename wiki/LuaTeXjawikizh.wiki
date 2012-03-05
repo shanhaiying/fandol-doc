@@ -1,11 +1,30 @@
-==LuaTeX-ja 项目wiki==
-LuaTeX-ja是使用Lua(La)TeX实现p(La)TeX功能的进行排版宏包。
-*
+==LuaTeX-ja 项目 wiki==
+LuaTeX-ja 是使用 Lua(La)TeX 实现 p(La)TeX 功能的进行排版宏包。LuaTeX-ja 现在可以用来排印含有汉字的中文和日文。
+ * 项目启动于 [http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=627 TeX forum: “LuaTeX で日本語”]
+ * 如果你对我们的项目感兴趣并乐于开发，请联络北川宏典先生(h7k at users.sourceforge.jp)
+ * 本宏包正在开发之中，可能因未充分测试发生各种问题，如果你发现了漏洞，请及时告诉我们
+===下载===
+现在宏包正在开发当中，用户可选用下面版本：
+ * [http://git.sourceforge.jp/view?p=luatex-ja/luatexja.git;a=snapshot;h=HEAD;sf=tgz 快照(tgz格式)]
+ * [http://sourceforge.jp/projects/luatex-ja/cvs/ git 版本]
+===文档===
+====手册====
+ * 英文版：[http://git.sourceforge.jp/view?p=luatex-ja/luatexja.git;a=blob_plain;f=doc/man-en.pdf;hb=HEAD The LuaTeX-ja Package Manual](编写中)
+ * 日文版：[http://git.sourceforge.jp/view?p=luatex-ja/luatexja.git;a=blob_plain;f=doc/man-ja.pdf;hb=HEAD LuaTeX-ja パッケージ](编写中)
+ * 中文版：翻译中
+====演讲====
+ * LuaTeX-ja の開発 (见[http://oku.edu.mie-u.ac.jp/texconf11/ TeX ユーザの集い 2011]，北川宏典)
+ ** 幻灯片：[http://sourceforge.jp/projects/luatex-ja/wiki/Documentation/attach/tc11-slide.pdf PDF] 和 [http://sourceforge.jp/projects/luatex-ja/wiki/Documentation/attach/tc11-slide.tex 源文件](日文)
+ ** [http://sourceforge.jp/projects/luatex-ja/wiki/Documentation/attach/tc11-abst.pdf PDF] 梗概
+===支持===
+请在[http://sourceforge.jp/forum/forum.php?forum_id=25558 论坛]中提问。漏洞报告提交请登录 [http://sourceforge.jp/projects/luatex-ja/ticket/ ticket] 页面。
 ===外部链接===
  * [http://ascii.asciimw.jp/pb/ptex/ ASCII Nihongo TeX (Publishing TeX)]
  * [http://www.luatex.org/ LuaTeX项目首页]
- * [http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?LuaTeX LuaTeX](TeX Wiki内讨论页面)
- * [http://www-is.amp.i.kyoto-u.ac.jp/lab/kmaeda/lualatex/luajalayout/ luajalayout宏包], [http://www-is.amp.i.kyoto-u.ac.jp/lab/kmaeda/lualatex/luafontcomp/ luafontcomp宏包](前田一贵)
- * [http://zrbabbler.sp.land.to/lualatexlua.html 思わず Lua で LaTeX してみた](ZR先生解说)
- * [http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=378 luaums.sty](北川宏典实验性宏包，旧式)
- * [http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=485 TeX Forum讨论（koTeXは日本語LuaTeXへの先導役になるか？）]
+ * [http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?LuaTeX LuaTeX] (TeX Wiki 内讨论页面)
+ * [http://www-is.amp.i.kyoto-u.ac.jp/lab/kmaeda/lualatex/luajalayout/ luajalayout 宏包], [http://www-is.amp.i.kyoto-u.ac.jp/lab/kmaeda/lualatex/luafontcomp/ luafontcomp 宏包] (前田一贵)
+ * [http://zrbabbler.sp.land.to/lualatexlua.html 思わず Lua で LaTeX してみた] (ZR先生解说)
+ * [http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=378 luaums.sty] (北川宏典实验性宏包，旧式)
+ * [http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=485 TeX Forum 讨论（koTeX は日本語 LuaTeX への先導役になるか？）]
+ * [http://code.google.com/p/fandol-doc/downloads/detail?name=zh-classes.tar.xz&can=2&q= zh-class] (根据 ltjclasses 修订而来，马起园)
+ * [http://code.google.com/p/fandol-doc/downloads/detail?name=test-zh.7z&can=2&q= LuaTeX-ja 中文排版测试] (马起园)
