@@ -1,0 +1,11 @@
+==LuaTeX-ja 项目wiki==
+LuaTeX-ja是使用Lua(La)TeX实现p(La)TeX功能的进行排版宏包。
+*
+===外部链接===
+*[http://ascii.asciimw.jp/pb/ptex/ ASCII Nihongo TeX (Publishing TeX)]
+*[http://www.luatex.org/ LuaTeX项目首页]
+*[http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?LuaTeX LuaTeX](TeX Wiki内讨论页面)
+*[http://www-is.amp.i.kyoto-u.ac.jp/lab/kmaeda/lualatex/luajalayout/ luajalayout宏包], [http://www-is.amp.i.kyoto-u.ac.jp/lab/kmaeda/lualatex/luafontcomp/ luafontcomp宏包](前田一贵)
+*[http://zrbabbler.sp.land.to/lualatexlua.html 思わず Lua で LaTeX してみた](ZR先生解说)
+*[http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=378 luaums.sty](北川宏典实验性宏包，旧式)
+*[http://oku.edu.mie-u.ac.jp/tex/mod/forum/discuss.php?d=485 TeX Forum讨论（koTeXは日本語LuaTeXへの先導役になるか？）]
