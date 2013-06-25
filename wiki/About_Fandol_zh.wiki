@@ -10,6 +10,8 @@
 = 资金来源 =
 Fandol 基金会成立初期，只有区区 *12$*，而这 12$ 本身，乃是 _LiTuX_ 童鞋，也就是本人，在 *VimIM* 项目获得的一箱_青岛啤酒_。
 
+2013年6月注记：_LiTuX_ 的 PayPal 账户密码丢失，钱没了，没啤酒了。
+
 = Fandol 的含义 =
 这个名字源于本人在接触开源世界之后的一些想法，譬如“共产主义将首先在软件行业实现”，以及 *知识共享，世界大同*。于是，由 _GNU_ 的 Free Software，以及 Free 的基础 Open Source 所引导，给我描绘了一幅足够吸引人的蓝图，_The world is Free and Open_ ，于是我造出了这么个东东：*Free and Open Life* ，——如您所见，这就是 Fandol 的由来。
 
